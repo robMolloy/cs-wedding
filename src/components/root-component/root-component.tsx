@@ -84,6 +84,7 @@ export class RootComponent {
                 {this.status === 'ready' &&
                   Object.values(this.imageDataGroups).map(imageDataGroup => (
                     <div>
+                      <div style={css({ textAlign: 'center' })}>{imageDataGroup[0].formattedDate}</div>
                       <div class="carousel w-full" style={css({ flexDirection: 'row-reverse' })}>
                         {[...imageDataGroup].reverse().map(imageData => (
                           <div id={imageData.name} class="carousel-item w-full" key={`${imageData.name}-main-image`} style={css({ width: '100%' })}>
@@ -106,19 +107,7 @@ export class RootComponent {
                           />
                         ))}
                       </div>
-                      {/* {x.map(y => (
-                      <div
-                        style={css({
-                          border: '1px solid red',
-                          flex: '1',
-                          minHeight: '80px',
-                          backgroundImage: `url(${y.downloadUrl})`,
-                          backgroundSize: 'cover',
-                          backgroundPosition: 'center',
-                        })}
-                        key={y.name}
-                      />
-                    ))} */}
+                      <br />
                     </div>
                   ))}
               </daisy-card>
