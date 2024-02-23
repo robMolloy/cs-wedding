@@ -7,6 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DaisyCard {
+        "heading"?: string;
     }
     interface DaisyCardLayout {
     }
@@ -40,6 +41,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DaisyCard {
+        "heading"?: string;
     }
     interface DaisyCardLayout {
     }

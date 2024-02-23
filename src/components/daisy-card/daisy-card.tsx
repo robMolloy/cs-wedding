@@ -1,10 +1,11 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Host, Prop, h } from '@stencil/core';
 import { css } from '../../utils/cssUtils';
 
 @Component({
   tag: 'daisy-card',
 })
 export class DaisyCard {
+  @Prop() heading?: string;
   render() {
     return (
       <Host>
@@ -13,13 +14,15 @@ export class DaisyCard {
           style={css({
             width: '100%',
             height: '100%',
+            maxHeight: '100%',
             boxShadow: '7px 7px 13px rgba(0, 0, 0, 0.6)',
+            overflow: 'scroll',
           })}
         >
           <div class="card-body">
-            <h2 class="card-title">Shoes!</h2>
+            {this.heading && <h2 class="card-title">{this.heading}</h2>}
+            <slot></slot>
           </div>
-          <slot></slot>
         </div>
       </Host>
     );
