@@ -6,56 +6,58 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface DaisyCard {
+    }
+    interface DaisyCardLayout {
+    }
+    interface RootComponent {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDaisyCardElement extends Components.DaisyCard, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDaisyCardElement: {
+        prototype: HTMLDaisyCardElement;
+        new (): HTMLDaisyCardElement;
+    };
+    interface HTMLDaisyCardLayoutElement extends Components.DaisyCardLayout, HTMLStencilElement {
+    }
+    var HTMLDaisyCardLayoutElement: {
+        prototype: HTMLDaisyCardLayoutElement;
+        new (): HTMLDaisyCardLayoutElement;
+    };
+    interface HTMLRootComponentElement extends Components.RootComponent, HTMLStencilElement {
+    }
+    var HTMLRootComponentElement: {
+        prototype: HTMLRootComponentElement;
+        new (): HTMLRootComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "daisy-card": HTMLDaisyCardElement;
+        "daisy-card-layout": HTMLDaisyCardLayoutElement;
+        "root-component": HTMLRootComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface DaisyCard {
+    }
+    interface DaisyCardLayout {
+    }
+    interface RootComponent {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "daisy-card": DaisyCard;
+        "daisy-card-layout": DaisyCardLayout;
+        "root-component": RootComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "daisy-card": LocalJSX.DaisyCard & JSXBase.HTMLAttributes<HTMLDaisyCardElement>;
+            "daisy-card-layout": LocalJSX.DaisyCardLayout & JSXBase.HTMLAttributes<HTMLDaisyCardLayoutElement>;
+            "root-component": LocalJSX.RootComponent & JSXBase.HTMLAttributes<HTMLRootComponentElement>;
         }
     }
 }
