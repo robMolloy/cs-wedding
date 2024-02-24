@@ -5,11 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TImageData } from "./types";
+export { TImageData } from "./types";
 export namespace Components {
     interface DaisyCard {
         "heading"?: string;
     }
-    interface DaisyCardLayout {
+    interface ImageCarousel {
+        "imageDataGroup": TImageData[];
     }
     interface RootComponent {
     }
@@ -21,11 +24,11 @@ declare global {
         prototype: HTMLDaisyCardElement;
         new (): HTMLDaisyCardElement;
     };
-    interface HTMLDaisyCardLayoutElement extends Components.DaisyCardLayout, HTMLStencilElement {
+    interface HTMLImageCarouselElement extends Components.ImageCarousel, HTMLStencilElement {
     }
-    var HTMLDaisyCardLayoutElement: {
-        prototype: HTMLDaisyCardLayoutElement;
-        new (): HTMLDaisyCardLayoutElement;
+    var HTMLImageCarouselElement: {
+        prototype: HTMLImageCarouselElement;
+        new (): HTMLImageCarouselElement;
     };
     interface HTMLRootComponentElement extends Components.RootComponent, HTMLStencilElement {
     }
@@ -35,7 +38,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "daisy-card": HTMLDaisyCardElement;
-        "daisy-card-layout": HTMLDaisyCardLayoutElement;
+        "image-carousel": HTMLImageCarouselElement;
         "root-component": HTMLRootComponentElement;
     }
 }
@@ -43,13 +46,14 @@ declare namespace LocalJSX {
     interface DaisyCard {
         "heading"?: string;
     }
-    interface DaisyCardLayout {
+    interface ImageCarousel {
+        "imageDataGroup": TImageData[];
     }
     interface RootComponent {
     }
     interface IntrinsicElements {
         "daisy-card": DaisyCard;
-        "daisy-card-layout": DaisyCardLayout;
+        "image-carousel": ImageCarousel;
         "root-component": RootComponent;
     }
 }
@@ -58,7 +62,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "daisy-card": LocalJSX.DaisyCard & JSXBase.HTMLAttributes<HTMLDaisyCardElement>;
-            "daisy-card-layout": LocalJSX.DaisyCardLayout & JSXBase.HTMLAttributes<HTMLDaisyCardLayoutElement>;
+            "image-carousel": LocalJSX.ImageCarousel & JSXBase.HTMLAttributes<HTMLImageCarouselElement>;
             "root-component": LocalJSX.RootComponent & JSXBase.HTMLAttributes<HTMLRootComponentElement>;
         }
     }

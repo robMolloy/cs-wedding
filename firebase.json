@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "public": "www",
+    "site": "c-and-s-wedding",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
